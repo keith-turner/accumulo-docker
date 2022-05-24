@@ -76,6 +76,9 @@ RUN yum install -y java-11-openjdk-devel make gcc-c++ wget && \
   /opt/accumulo/bin/accumulo-util build-native
 
 ADD properties/ /opt/accumulo/conf/
+COPY micrometer-registry-statsd-1.8.4.jar /opt/accumulo/lib
+COPY accumulo-test-$ACCUMULO_VERSION.jar /opt/accumulo/lib
+
 
 ENV HADOOP_HOME /opt/hadoop
 ENV ZOOKEEPER_HOME /opt/zookeeper
